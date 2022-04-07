@@ -1,3 +1,4 @@
 loguru
 httpx
 tqdm
+pyjwt
