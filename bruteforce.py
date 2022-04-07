@@ -76,7 +76,7 @@ async def main(email: str, account_id: str, new_password: str, max_concurrent_br
         if task.get_name().startswith("Bruteforce"):
             task.cancel()
     if success_code:
-        logger.success(f"Success code is {success_code}. Password is now {new_password}, closing")
+        logger.success(f"Success code is {success_code}. Password is now {new_password} closing")
     else:
         logger.error(f"Failed to find a success code. {fail_counter} attempts failed")
 
