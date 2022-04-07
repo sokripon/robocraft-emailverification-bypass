@@ -144,15 +144,15 @@ if __name__ == "__main__":
     import argparse
 
     my_parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    my_parser.add_argument("-e", "--email", type=str, required=True, help="The email of the target account")
-    my_parser.add_argument("-i", "--account_id", type=str, required=True, help="The account id of the target account")
-    my_parser.add_argument("-p", "--new_password", type=str, default="XDLiyLE7mdiRj!", help="The new password to set")
-    my_parser.add_argument("-b", "--max_concurrent_brute_requests", type=int, default=20, help="The maximum number of concurrent requests to make when bruteforcing")
-    my_parser.add_argument("-c", "--max_concurrent_email_requests", type=int, default=5, help="The maximum number of concurrent requests to make when sending recovery emails")
-    my_parser.add_argument("-r", "--password_reset_emails", type=int, default=100, help="The number of emails to send to reset the password, higher number -> higher speed")
+    my_parser.add_argument("-e", "--email", type=str, required=True, help="The email of the target account", metavar="\b")
+    my_parser.add_argument("-i", "--account_id", type=str, required=True, help="The account id of the target account", metavar="\b")
+    my_parser.add_argument("-p", "--new_password", type=str, default="XDLiyLE7mdiRj!", help="The new password to set", metavar="\b")
+    my_parser.add_argument("-b", "--max_concurrent_brute_requests", type=int, default=20, help="The maximum number of concurrent requests to make when bruteforcing", metavar="\b")
+    my_parser.add_argument("-c", "--max_concurrent_email_requests", type=int, default=5, help="The maximum number of concurrent requests to make when sending recovery emails", metavar="\b")
+    my_parser.add_argument("-r", "--password_reset_emails", type=int, default=100, help="The number of emails to send to reset the password, higher number -> higher speed", metavar="\b")
     my_parser.add_argument("-a", "--additional_account_info", default=False, action="store_true", help="Get additional account info")
     my_parser.add_argument("-s", "--save", default=False, action="store_true", help="Save the account info to a file")
-    my_parser.add_argument("-sp", "--save_path", type=str, default="account_info.json", help="The path to save the account info to")
+    my_parser.add_argument("-sp", "--save_path", type=str, default="account_info.json", help="The path to save the account info to", metavar="\b")
 
     args = my_parser.parse_args()
     asyncio.run(main(**vars(args)))
