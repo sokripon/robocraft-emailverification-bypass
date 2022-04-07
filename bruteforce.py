@@ -143,7 +143,7 @@ async def main(email: str, account_id: str, new_password: str, max_concurrent_br
 if __name__ == "__main__":
     import argparse
 
-    my_parser = argparse.ArgumentParser()
+    my_parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     my_parser.add_argument("-e", "--email", type=str, required=True, help="The email of the target account")
     my_parser.add_argument("-i", "--account_id", type=str, required=True, help="The account id of the target account")
     my_parser.add_argument("-p", "--new_password", type=str, default="XDLiyLE7mdiRj!", help="The new password to set")
