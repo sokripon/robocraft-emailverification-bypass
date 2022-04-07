@@ -32,8 +32,8 @@ Done.
 
 ## Usage
 
-First you need to edit the bruteforce.py file and change the email AND the account-id/PublicId, the account-id is either an uuid v4 or a username which is not always the same as the
-displayed name!
+First you need to edit the bruteforce.py file and change the email AND the account-id/PublicId, the account-id is an uuid v4, there might be some cases where the username works as the
+account-id, but I couldn't find any.'<br>
 There are ways to find the account-id/PublicId, but you need to find them yourself.<br>
 Getting the email address is the hardest part, you need to rely on either guesswork, social engineering or old dumps.<br>
 WARNING: This can only work on accounts that have a password set, many accounts are just made through Steam and have no password & email set which hinders the bruteforce.<br>
